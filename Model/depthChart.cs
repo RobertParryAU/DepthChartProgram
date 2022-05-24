@@ -7,24 +7,24 @@ namespace Model {
         public Dictionary<string, List<Player>> Chart{get;}
 
         public void addPlayerToDepthChart(string position, Player player, int? depth = null){
-            if(this.Chart.ContainsKey(position)){
-                List<Player> playerList = this.Chart[position];
-                
-                //Remove duplicates and assume new position is correct
-                if(playerList.Contains(player)){
-                    playerList.Remove(player);
-                }
-
-                if(depth is not null){
-                    playerList.Insert(depth.Value, player);
-                }else{
-                    playerList.Append(player);
-                }
-
-                this.Chart[position] = playerList;
-            }else{
+            if(!this.Chart.ContainsKey(position)){
                 this.Chart.Add(position, new List<Player>(){player});
             }
+
+            List<Player> playerList = this.Chart[position];
+                
+            //Remove duplicates and assume new position is correct
+            if(playerList.Contains(player)){
+                playerList.Remove(player);
+            }
+
+            if(depth is not null){
+                playerList.Insert(depth.Value, player);
+            }else{
+                playerList.Add(player);
+            }
+
+            this.Chart[position] = playerList;
         }
 
         public List<Player> removePlayerFromDepthChart(string position, Player player){
