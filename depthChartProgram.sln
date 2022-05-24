@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepthChartProgram", "DepthChartProgram.csproj", "{F81732C6-95C9-456D-9808-AC8774E8A0D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepthChartProgram", "src\DepthChartProgram.csproj", "{F81732C6-95C9-456D-9808-AC8774E8A0D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "Tests\tests.csproj", "{0566A285-4B91-42B4-AC2B-AA36EB890D5C}"
 EndProject

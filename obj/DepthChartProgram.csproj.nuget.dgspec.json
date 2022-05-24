@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj": {}
+    "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj": {
+    "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
+        "projectUniqueName": "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
         "projectName": "DepthChartProgram",
-        "projectPath": "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
+        "projectPath": "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
         "packagesPath": "C:\\Users\\rparr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\obj\\",
+        "outputPath": "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rparr\\AppData\\Roaming\\NuGet\\NuGet.Config"

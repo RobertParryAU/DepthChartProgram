@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cR2K1l3n7JQ8WKnsXw/vfX+/ChK24FeBDh1GW3AFFZi0XRxY/ZhPNRqZcO8TOkxAoQ9I5Xj3adHgAXZPpBgRuA==",
+  "dgSpecHash": "gWvSM0vtMMCjodWvD4mtv0hRH67xKXW+X62R4SATvyFHMi10iV0Zr0BGBGSTsBHebxKAm7BEusqWi2nLfVU7nA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
+  "projectFilePath": "c:\\Users\\rparr\\Documents\\Sportsbet coding\\DepthChartProgram\\DepthChartProgram.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rparr\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\rparr\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
