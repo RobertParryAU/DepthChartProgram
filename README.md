@@ -1,3 +1,13 @@
 # DepthChartProgram
 
-Program output can be viewed by running the DepthChartProgram executable in the bin/debug/net6.0 folder
+Code built and executed using VSCode 
+.net 6.0
+
+Extensions
+C#
+Nuget Package manager
+Test Adapter Converter
+
+
+Can be built via cli using dotnet build
+Can be run via cli dotnet run
