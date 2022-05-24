@@ -14,6 +14,6 @@ Test Adapter Converter
 
 Can be built via cli using dotnet build
 
-Can be run via cli dotnet run
+Can be run via cli dotnet run from src folder
 
-Can be run via cli dotnet test
+Can be run via cli dotnet test from test folder
