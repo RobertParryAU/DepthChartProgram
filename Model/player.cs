@@ -1,4 +1,4 @@
-namespace Model {
+namespace DepthChartProgram.Model {
     public class Player {
         public Player(){
             Name = "";

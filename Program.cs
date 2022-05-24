@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using DepthChartProgram.Model;
 
 namespace DepthChartProgram {
     public static class Program {

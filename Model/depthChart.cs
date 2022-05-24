@@ -1,82 +1,102 @@
-namespace Model {
-    public class DepthChart {
-        public DepthChart(){
+namespace DepthChartProgram.Model
+{
+    public class DepthChart
+    {
+        public DepthChart()
+        {
             Chart = new Dictionary<string, List<Player>>();
         }
 
-        public Dictionary<string, List<Player>> Chart{get;}
+        public Dictionary<string, List<Player>> Chart { get; }
 
-        public void addPlayerToDepthChart(string position, Player player, int? depth = null){
-            if(!this.Chart.ContainsKey(position)){
-                this.Chart.Add(position, new List<Player>(){player});
+        public void addPlayerToDepthChart(string position, Player player, int? depth = null)
+        {
+            if (!Chart.ContainsKey(position))
+            {
+                Chart.Add(position, new List<Player>() { player });
             }
 
-            List<Player> playerList = this.Chart[position];
-                
+            List<Player> playerList = Chart[position];
+
             //Remove duplicates and assume new position is correct
-            if(playerList.Contains(player)){
+            if (playerList.Contains(player))
+            {
                 playerList.Remove(player);
             }
 
-            if(depth is not null){
+            if (depth is not null)
+            {
                 playerList.Insert(depth.Value, player);
-            }else{
+            }
+            else
+            {
                 playerList.Add(player);
             }
 
-            this.Chart[position] = playerList;
+            Chart[position] = playerList;
         }
 
-        public List<Player> removePlayerFromDepthChart(string position, Player player){
-            if(!this.Chart.ContainsKey(position)){
+        public List<Player> removePlayerFromDepthChart(string position, Player player)
+        {
+            if (!Chart.ContainsKey(position))
+            {
                 return new List<Player>();
             }
 
-            List<Player> playerList = this.Chart[position];
+            List<Player> playerList = Chart[position];
 
-            if(!playerList.Contains(player)){
+            if (!playerList.Contains(player))
+            {
                 return new List<Player>();
             }
 
             playerList.Remove(player);
-            this.Chart[position] = playerList;
+            Chart[position] = playerList;
 
-            return new List<Player>(){player};
+            return new List<Player>() { player };
         }
 
-        public List<Player> getBackups(string position, Player player){
-            if(!this.Chart.ContainsKey(position)){
+        public List<Player> getBackups(string position, Player player)
+        {
+            if (!Chart.ContainsKey(position))
+            {
                 return new List<Player>();
             }
 
-            List<Player> playerList = this.Chart[position];
+            List<Player> playerList = Chart[position];
 
             //If players list does not contains the player or the players list is just this player or empty
-            if(!playerList.Contains(player) || playerList.Count <= 1){
+            if (!playerList.Contains(player) || playerList.Count <= 1)
+            {
                 return new List<Player>();
             }
 
             return playerList.Skip(playerList.IndexOf(player) + 1).ToList();
         }
 
-        public void getFullDepthChart(){
-            if(!this.Chart.Any()){
+        public void getFullDepthChart()
+        {
+            if (!Chart.Any())
+            {
                 Console.WriteLine("## No output");
                 return;
             }
 
             Console.WriteLine("## Start output");
 
-            foreach(KeyValuePair<string, List<Player>> position in this.Chart){
+            foreach (KeyValuePair<string, List<Player>> position in Chart)
+            {
                 string playersInPosition = "";
-                foreach(Player player in position.Value){
-                    if(!string.IsNullOrEmpty(playersInPosition)){
+                foreach (Player player in position.Value)
+                {
+                    if (!string.IsNullOrEmpty(playersInPosition))
+                    {
                         playersInPosition += ", ";
                     }
                     playersInPosition += $"(#{player.PlayerNumber}, {player.Name})";
                 }
                 Console.WriteLine("{0} - {1}", position.Key, playersInPosition);
-            } 
+            }
         }
     }
 }
