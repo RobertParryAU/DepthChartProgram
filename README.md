@@ -4,8 +4,11 @@ Code built and executed using VSCode
 .net 6.0
 
 Extensions
+
 C#
+
 Nuget Package manager
+
 Test Adapter Converter
 
 
