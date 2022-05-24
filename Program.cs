@@ -24,28 +24,41 @@ namespace DepthChartProgram {
             depthChart.addPlayerToDepthChart("LWR", ScottMiller, 2);
 
             playerlist = depthChart.getBackups("QB", TomBrady);
-            depthChart.playerListOutput(playerlist);
+            playerListOutput(playerlist);
 
             playerlist = depthChart.getBackups("LWR", JaelonDarden);
-            depthChart.playerListOutput(playerlist);
+            playerListOutput(playerlist);
 
             playerlist = depthChart.getBackups("QB", MikeEvans);
-            depthChart.playerListOutput(playerlist);
+            playerListOutput(playerlist);
 
             playerlist = depthChart.getBackups("QB", BlaineGabbert);
-            depthChart.playerListOutput(playerlist);
+            playerListOutput(playerlist);
 
             playerlist = depthChart.getBackups("QB", KyleTrask);
-            depthChart.playerListOutput(playerlist);
+            playerListOutput(playerlist);
 
             depthChart.getFullDepthChart();
 
             playerlist = depthChart.removePlayerFromDepthChart("LWR", MikeEvans);
-            depthChart.playerListOutput(playerlist);
-            
+            playerListOutput(playerlist);
+
             depthChart.getFullDepthChart();
 
             Console.Read();
+        }
+
+        public static void playerListOutput(List<Player> playerList){
+            if(!playerList.Any()){
+                Console.WriteLine("## No output");
+                return;
+            }
+
+            Console.WriteLine("## Start output");
+            
+            foreach(Player player in playerList){
+                Console.WriteLine("#{0} - {1}", player.PlayerNumber, player.Name);
+            }
         }
     }
 }

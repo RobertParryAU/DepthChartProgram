@@ -78,18 +78,5 @@ namespace Model {
                 Console.WriteLine("{0} - {1}", position.Key, playersInPosition);
             } 
         }
-
-        public void playerListOutput(List<Player> playerList){
-            if(!playerList.Any()){
-                Console.WriteLine("## No output");
-                return;
-            }
-
-            Console.WriteLine("## Start output");
-            
-            foreach(Player player in playerList){
-                Console.WriteLine("#{0} - {1}", player.PlayerNumber, player.Name);
-            }
-        }
     }
 }
