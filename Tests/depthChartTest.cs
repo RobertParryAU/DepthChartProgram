@@ -40,12 +40,28 @@ namespace Tests
             var depthChart = new DepthChart();
             var TomBrady = new Player("Tom Brady", 12);
             var position = "QB";
-            var expectedCount = 0;
+            var returnedPlayers = new List<Player>();
 
             depthChart.addPlayerToDepthChart(position, TomBrady, 0);
-            depthChart.removePlayerFromDepthChart(position, TomBrady);
+            returnedPlayers = depthChart.removePlayerFromDepthChart(position, TomBrady);
 
-            Assert.AreEqual(expectedCount, depthChart.Chart[position].Count());
+            Assert.AreEqual(TomBrady, returnedPlayers.First());
+        }
+
+        [TestMethod]
+        public void getbackups_Success()
+        {
+            var depthChart = new DepthChart();
+            var TomBrady = new Player("Tom Brady", 12);
+            var BlaineGabbert = new Player("Blaine Gabbert", 11);
+            var position = "QB";
+            var returnedPlayers = new List<Player>();
+
+            depthChart.addPlayerToDepthChart(position, TomBrady, 0);
+            depthChart.addPlayerToDepthChart(position, BlaineGabbert, 1);
+            returnedPlayers = depthChart.getBackups(position, TomBrady);
+
+            Assert.AreEqual(BlaineGabbert, returnedPlayers.First());
         }
     }
 }

@@ -5,6 +5,7 @@ namespace DepthChartProgram {
         public static void Main(string[] args) {
 
             var depthChart = new DepthChart();
+            var playerlist = new List<Player>();
 
             var TomBrady = new Player("Tom Brady", 12);
             var BlaineGabbert = new Player("Blaine Gabbert", 11);
@@ -14,7 +15,6 @@ namespace DepthChartProgram {
             var JaelonDarden = new Player("Jaelon Darden", 1);
             var ScottMiller = new Player("Scott Miller", 10);
 
-
             depthChart.addPlayerToDepthChart("QB", TomBrady, 0);
             depthChart.addPlayerToDepthChart("QB", BlaineGabbert, 1);
             depthChart.addPlayerToDepthChart("QB", KyleTrask, 2);
@@ -23,16 +23,26 @@ namespace DepthChartProgram {
             depthChart.addPlayerToDepthChart("LWR", JaelonDarden, 1);
             depthChart.addPlayerToDepthChart("LWR", ScottMiller, 2);
 
-            depthChart.getBackups("QB", TomBrady);
-            depthChart.getBackups("LWR", JaelonDarden);
-            depthChart.getBackups("QB", MikeEvans);
-            depthChart.getBackups("QB", BlaineGabbert);
-            depthChart.getBackups("QB", KyleTrask);
+            playerlist = depthChart.getBackups("QB", TomBrady);
+            depthChart.playerListOutput(playerlist);
+
+            playerlist = depthChart.getBackups("LWR", JaelonDarden);
+            depthChart.playerListOutput(playerlist);
+
+            playerlist = depthChart.getBackups("QB", MikeEvans);
+            depthChart.playerListOutput(playerlist);
+
+            playerlist = depthChart.getBackups("QB", BlaineGabbert);
+            depthChart.playerListOutput(playerlist);
+
+            playerlist = depthChart.getBackups("QB", KyleTrask);
+            depthChart.playerListOutput(playerlist);
 
             depthChart.getFullDepthChart();
 
-            depthChart.removePlayerFromDepthChart("LWR", MikeEvans);
-
+            playerlist = depthChart.removePlayerFromDepthChart("LWR", MikeEvans);
+            depthChart.playerListOutput(playerlist);
+            
             depthChart.getFullDepthChart();
 
             Console.Read();

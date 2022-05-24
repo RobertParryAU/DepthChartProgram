@@ -6,9 +6,9 @@ namespace Model {
 
         public Dictionary<string, List<Player>> Chart{get;}
 
-        public void addPlayerToDepthChart(string Position, Player player, int? depth = null){
-            if(this.Chart.ContainsKey(Position)){
-                List<Player> playerList = this.Chart[Position];
+        public void addPlayerToDepthChart(string position, Player player, int? depth = null){
+            if(this.Chart.ContainsKey(position)){
+                List<Player> playerList = this.Chart[position];
                 
                 //Remove duplicates and assume new position is correct
                 if(playerList.Contains(player)){
@@ -21,41 +21,52 @@ namespace Model {
                     playerList.Append(player);
                 }
 
-                this.Chart[Position] = playerList;
+                this.Chart[position] = playerList;
             }else{
-                this.Chart.Add(Position, new List<Player>(){player});
+                this.Chart.Add(position, new List<Player>(){player});
             }
         }
 
-        public void removePlayerFromDepthChart(string Position, Player player){
-            if(this.Chart.ContainsKey(Position)){
-                List<Player> playerList = this.Chart[Position];
-
-                if(playerList.Contains(player)){
-                    Console.WriteLine("#{0} - {1}", player.PlayerNumber, player.Name);
-                    playerList.Remove(player);
-
-                    this.Chart[Position] = playerList;
-                }
+        public List<Player> removePlayerFromDepthChart(string position, Player player){
+            if(!this.Chart.ContainsKey(position)){
+                return new List<Player>();
             }
+
+            List<Player> playerList = this.Chart[position];
+
+            if(!playerList.Contains(player)){
+                return new List<Player>();
+            }
+
+            playerList.Remove(player);
+            this.Chart[position] = playerList;
+
+            return new List<Player>(){player};
         }
 
-        public void getBackups(string Position, Player player){
-            if(this.Chart.ContainsKey(Position)){
-                List<Player> playerList = this.Chart[Position];
-
-                //If players list contains the player and the players list is more than just this player
-                if(playerList.Contains(player) && playerList.Count > 1){
-                    List<Player> backups = playerList.Skip(playerList.IndexOf(player) + 1).Take(playerList.Count).ToList();
-
-                    foreach(Player backup in backups){
-                        Console.WriteLine("#{0} - {1}", backup.PlayerNumber, backup.Name);
-                    }
-                }
+        public List<Player> getBackups(string position, Player player){
+            if(!this.Chart.ContainsKey(position)){
+                return new List<Player>();
             }
+
+            List<Player> playerList = this.Chart[position];
+
+            //If players list does not contains the player or the players list is just this player or empty
+            if(!playerList.Contains(player) || playerList.Count <= 1){
+                return new List<Player>();
+            }
+
+            return playerList.Skip(playerList.IndexOf(player) + 1).ToList();
         }
 
         public void getFullDepthChart(){
+            if(!this.Chart.Any()){
+                Console.WriteLine("## No output");
+                return;
+            }
+
+            Console.WriteLine("## Start output");
+
             foreach(KeyValuePair<string, List<Player>> position in this.Chart){
                 string playersInPosition = "";
                 foreach(Player player in position.Value){
@@ -66,6 +77,19 @@ namespace Model {
                 }
                 Console.WriteLine("{0} - {1}", position.Key, playersInPosition);
             } 
+        }
+
+        public void playerListOutput(List<Player> playerList){
+            if(!playerList.Any()){
+                Console.WriteLine("## No output");
+                return;
+            }
+
+            Console.WriteLine("## Start output");
+            
+            foreach(Player player in playerList){
+                Console.WriteLine("#{0} - {1}", player.PlayerNumber, player.Name);
+            }
         }
     }
 }
